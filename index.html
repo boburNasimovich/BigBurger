@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigBurger</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header style="align-items: center;">
+        <h1>BigBurger</h1>
+        <button style="font-size: 12px;" onclick="scrollToMenu()">Buyurtma</button>
+    </header>
+    <section class="hero">
+        <h2>Premium Burgerlar</h2>
+        <p>Tez • Mazali • Sifatli</p>
+    </section>
+    <h2 class="title" id="menuTitle">Menu</h2>
+    <!-- BURGER -->
+    <h3 class="category">Burgerlar</h3>
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+            <h3>Big Burger</h3>
+            <p>25 000 so'm</p>
+            <button onclick="addToCart('Big Burger', 25000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+            <h3>Cheese Burger</h3>
+            <p>20 000 so'm</p>
+            <button onclick="addToCart('Cheese Burger', 20000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- LAVASH -->
+    <h3 class="category">Lavash</h3>
+    <div class="menu">
+
+        <div class="card">
+            <img src="/img/lavash.jpg">
+            <h3>Tovuq lavash</h3>
+            <p>22 000 so'm</p>
+            <button onclick="addToCart('Tovuq lavash', 22000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="/img/lavash.jpg">
+            <h3>Mol go'sht lavash</h3>
+            <p>25 000 so'm</p>
+            <button onclick="addToCart('Mol lavash', 25000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- HOTDOG -->
+    <h3 class="category">Hot-dog</h3>
+    <div class="menu">
+
+        <div class="card">
+            <img src="/img/delicious-hot-dog-studio.jpg">
+            <h3>Classic hotdog</h3>
+            <p>15 000 so'm</p>
+            <button onclick="addToCart('Hotdog', 15000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- PITSA -->
+    <h3 class="category">Pitsa</h3>
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
+            <h3>Pepperoni</h3>
+            <p>45 000 so'm</p>
+            <button onclick="addToCart('Pepperoni', 45000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
+            <h3>Margarita</h3>
+            <p>40 000 so'm</p>
+            <button onclick="addToCart('Margarita', 40000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ICHIMLIK -->
+    <h3 class="category">Ichimliklar</h3>
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7">
+            <h3>Coca Cola</h3>
+            <p>8 000 so'm</p>
+            <button onclick="addToCart('Cola', 8000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7">
+            <h3>Fanta</h3>
+            <p>8 000 so'm</p>
+            <button onclick="addToCart('Fanta', 8000)">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </div>
+    </div>
+    <section class="cart-section" style="padding-left: 20px;padding-right: 20px;">
+        <h2><i class="fa-solid fa-cart-shopping"></i> Savat</h2>
+        <ul id="cart"></ul>
+        <p id="total"></p>
+    </section>
+    <section class="order" style="padding-left: 20px;padding-right: 20px;">
+        <h2><i class="fa-solid fa-truck"></i> Buyurtma</h2>
+        <input id="name" placeholder="Ismingiz">
+        <input id="phone" value="+998" placeholder="+998 90 123 45 67">
+        <input id="address" placeholder="Manzil">
+        <button onclick="sendOrder()">
+            <i class="fa-solid fa-paper-plane"></i> Yuborish
+        </button>
+    </section>
+    <footer>
+        <div>
+            <h3>BigBurger</h3>
+            <p>Eng mazali burgerlar</p>
+            <div class="socials">
+                <a style="text-decoration: none; color: white;" class="fa-brands fa-telegram" href="https://t.me/nsmvch"
+                    target="_blank"></a>
+                <a style="text-decoration: none; color: white;" class="fa-brands fa-instagram"
+                    href="https://instagram.com/_nsmvc" target="_blank"></a>
+            </div>
+        </div>
+        <div style="line-height: 40px;">
+            <ul style="list-style: none;">
+                <li><i class="fa-solid fa-phone"></i><a style="color: white; text-decoration: none;" href="tel:+998200004489">+998 20 000 44 89</a></li>
+                <li><i class="fa-solid fa-envelope"></i> <a style="color: white; text-decoration: none;"
+                        href="mailto:boburnasimovich@gmail.com">boburnasimovich@gmail.com</a></li>
+                <li><i class="fa-solid fa-location-dot"></i> O'zbekiston</li>
+            </ul>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d827.2159658618828!2d71.97370149288547!3d40.877028635981944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1773943583715!5m2!1sru!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

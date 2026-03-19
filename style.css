@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* LOADER */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid gray;
+    border-top: 5px solid orange;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
+}
+
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    padding: 10px;
+    text-align: left;
+    /* 👈 muhim */
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    margin: 5px 0 10px;
+    color: #ccc;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 60px 20px;
+    background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
+}
+
+/* Qora overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Text ustida turadi */
+.hero h2,
+.hero p {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.category {
+    margin: 20px;
+    font-size: 20px;
+    color: orange;
+}
+
+.hero p {
+    color: #ddd;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+button {
+    background: orange;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  background: #000;
+  color: white;
+  flex-wrap: wrap;
+}
+
+footer > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* socials */
+.socials a {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* map */
+footer iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+/* 📱 TELEFON UCHUN */
+@media (max-width: 768px) {
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer > div {
+    width: 100%;
+  }
+
+  footer ul {
+    padding: 0;
+  }
+
+  footer li {
+    margin: 10px 0;
+  }
+
+  .socials {
+    margin-top: 10px;
+  }
+
+  footer iframe {
+    width: 100%;
+    height: 200px;
+  }
+}
+.socials {
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+iframe{
+    width: 300px;
+    height: 200px;
+}
