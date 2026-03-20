@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const TOKEN = "8601650175:AAFhb8r_y4YZyyxM7kXq7e6QmXRSJkFh6yM";
+const TOKEN = "8232650087:AAEQtCj3DkXlrb8NxdeGPyklgbJamyD4Hy8";
 const CHAT_ID = "983089996";
 
 app.post("/order", async (req, res) => {
