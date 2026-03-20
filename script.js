@@ -107,8 +107,8 @@ ${items}
 💰 Jami: ${total} so'm`;
 
   // 🔐 TELEGRAM CONFIG
-  const TOKEN = "8601650175:AAFhb8r_y4YZyyxM7kXq7e6QmXRSJkFh6yM";
-  const CHAT_ID = "8459438709";
+  const TOKEN = "8232650087:AAEQtCj3DkXlrb8NxdeGPyklgbJamyD4Hy8";
+  const CHAT_ID = "983089996";
 
   try {
     const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
