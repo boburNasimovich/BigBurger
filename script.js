@@ -1,9 +1,9 @@
 let cart = [];
 
 // loader
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("loader").style.display = "none";
-};
+});
 
 function addToCart(name, price) {
   let item = cart.find(i => i.name === name);
