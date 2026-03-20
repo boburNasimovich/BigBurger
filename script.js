@@ -12,16 +12,54 @@ function addToCart(name, price) {
   else cart.push({ name, price, qty: 1 });
 
   renderCart();
+  showToast(name + " qo‘shildi ✅");
+}
+function increase(index) {
+  cart[index].qty++;
+  renderCart();
 }
 
+function decrease(index) {
+  if (cart[index].qty > 1) {
+    cart[index].qty--;
+  } else {
+    cart.splice(index, 1);
+  }
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+function showToast(text) {
+  const toast = document.getElementById("toast");
+  toast.innerText = text;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
 function renderCart() {
   let cartList = document.getElementById("cart");
   cartList.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     total += item.price * item.qty;
-    cartList.innerHTML += `<li>${item.name} x${item.qty}</li>`;
+
+    cartList.innerHTML += `
+      <li style="margin-bottom:10px;">
+        <b>${item.name}</b><br>
+        
+        <button onclick="decrease(${index})">➖</button>
+        ${item.qty}
+        <button onclick="increase(${index})">➕</button>
+        
+        <button onclick="removeItem(${index})" style="color:red;">❌</button>
+      </li>
+    `;
   });
 
   document.getElementById("total").innerText = "Jami: " + total + " so'm";
@@ -57,7 +95,7 @@ async function sendOrder() {
   let total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
 
   const text =
-`🍔 Yangi buyurtma!
+    `🍔 Yangi buyurtma!
 
 👤 Ism: ${name}
 📞 Telefon: ${phone}
@@ -104,7 +142,7 @@ function scrollToMenu() {
   });
 }
 
-document.getElementById("phone").addEventListener("input", function() {
+document.getElementById("phone").addEventListener("input", function () {
   if (!this.value.startsWith("+998")) {
     this.value = "+998";
   }

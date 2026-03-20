@@ -57,13 +57,49 @@ header {
 }
 
 .card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-    padding: 10px;
-    text-align: left;
-    /* 👈 muhim */
+  position: relative;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* QORA GRADIENT */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+}
+
+/* TEXT BLOK */
+.overlay {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  width: 100%;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.overlay p {
+  margin: 5px 0;
+  color: #ddd;
+}
+
+.overlay button {
+  width: 100%;
+}
+
+/* eski imgni o‘chir */
+.card img {
+  display: none;
 }
 
 .card h3 {
@@ -74,7 +110,9 @@ header {
     margin: 5px 0 10px;
     color: #ccc;
 }
-
+.inp{
+    max-width: 270px;
+}
 .hero {
     position: relative;
     text-align: center;
@@ -209,4 +247,44 @@ footer iframe {
 iframe{
     width: 300px;
     height: 200px;
+}
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 9999;
+}
+
+#toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+li button {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background: orange;
+  color: white;
+}
+
+li button:last-child {
+  background: red;
+}
+.about {
+  padding: 30px 20px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.about h2 {
+  color: orange;
+  margin-bottom: 10px;
 }
