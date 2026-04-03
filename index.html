@@ -10,13 +10,15 @@
     <meta name="keywords"
         content="burger, lavash, hotdog, pitsa, fastfood, burger chinobod, ovqat buyurtma, fast food uzbekistan, bigburger">
     <meta name="author" content="BigBurgerChinobod">
+
     <title>BigBurger Chinobod</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
 </head>
 
 <body>
@@ -144,7 +146,7 @@
                     </button>
                 </div>
             </div>
-             <div class="card" style="background-image:url('./img/tovuqlavash.png')">
+            <div class="card" style="background-image:url('./img/tovuqlavash.png')">
                 <div class="overlay">
                     <h3>Lavash tovuq go'shtli</h3>
                     <p>25 000 so'm</p>
@@ -312,7 +314,7 @@
             <div class="menu">
                 <div class="card" style="background-image:url('./img/kfc.jpg?width: 400px;')">
                     <div class="overlay">
-                        <h3>KFS (tovuq) 500g</h3>
+                        <h3 style="text-shadow: -1px 1px 10px black;">KFS (tovuq) 500g</h3>
                         <p>43 000 so'm</p>
                         <button onclick="addToCart('KFS', 43000)">
                             <i class="fa-solid fa-cart-plus"></i>
@@ -321,9 +323,18 @@
                 </div>
                 <div class="card" style="background-image:url('./img/kfc.jpg?width: 400px;')">
                     <div class="overlay">
-                        <h3>KFS (tovuq) 1kg</h3>
+                        <h3 style="text-shadow: -1px 1px 10px black;">KFS (tovuq) 1kg</h3>
                         <p>85 000 so'm</p>
                         <button onclick="addToCart('KFS', 85000)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                 <div class="card" style="background-image:url('./img/grill.jfif')">
+                    <div class="overlay">
+                        <h3 style="text-shadow: -1px 1px 10px black;">Grill (tovuq) </h3>
+                        <p>55 000 so'm</p>
+                        <button onclick="addToCart('Grill', 55000)">
                             <i class="fa-solid fa-cart-plus"></i>
                         </button>
                     </div>
@@ -444,8 +455,8 @@
             <h3>BigBurger</h3>
             <p>Eng mazali burgerlar</p>
             <div class="socials">
-                <a style="text-decoration: none; color: white;" class="fa-brands fa-telegram" href="https://t.me/xurshidvolk"
-                    target="_blank"></a>
+                <a style="text-decoration: none; color: white;" class="fa-brands fa-telegram"
+                    href="https://t.me/xurshidvolk" target="_blank"></a>
                 <a style="text-decoration: none; color: white;" class="fa-brands fa-instagram"
                     href="https://instagram.com/big_burger_n1" target="_blank"></a>
             </div>
@@ -464,6 +475,8 @@
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </footer>
+    <span style="display: flex;justify-content: center; padding-top: 10px;padding-bottom: 10px;">Created by<a
+            style="color: white; margin-left: 5px;" href="https://boburnasimovich.uz" target="_blank">Bobur</a></span>
     <script src="script.js"></script>
     <div id="toast">Mahsulot qo‘shildi ✅</div>
 </body>
