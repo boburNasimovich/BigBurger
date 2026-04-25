@@ -70,27 +70,12 @@ async function sendOrder() {
   let phone = document.getElementById("phone").value.trim();
   let address = document.getElementById("address").value.trim();
 
-  if (name.length < 3) {
-    alert("Ism noto‘g‘ri!");
-    return;
-  }
+  // Validatsiya
+  if (name.length < 3) { alert("Ism noto‘g‘ri!"); return; }
+  if (!phone.startsWith("+998")) { alert("Telefon +998 bilan boshlansin"); return; }
+  if (address.length < 5) { alert("Manzil noto‘g‘ri!"); return; }
+  if (cart.length === 0) { alert("Savat bo‘sh!"); return; }
 
-  if (!phone.startsWith("+998")) {
-    alert("Telefon +998 bilan boshlansin");
-    return;
-  }
-
-  if (address.length < 5) {
-    alert("Manzil noto‘g‘ri!");
-    return;
-  }
-
-  if (cart.length === 0) {
-    alert("Savat bo‘sh!");
-    return;
-  }
-
-  // 🧾 Buyurtma matni
   let items = cart.map(i => `${i.name} x${i.qty}`).join("\n");
   let total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
 
@@ -108,30 +93,27 @@ ${items}
 
   // 🔐 TELEGRAM CONFIG
   const TOKEN = "8232650087:AAEQtCj3DkXlrb8NxdeGPyklgbJamyD4Hy8";
-  const CHAT_ID = "983089996";
+  const CHAT_IDS = ["983089996", "8701773479"]; // IDlar ro'yxati
 
   try {
-    const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: text
-      })
-    });
-
-    if (res.ok) {
-      alert("Buyurtma yuborildi! ✅");
-      cart = [];
-      renderCart();
-    } else {
-      alert("Xatolik! ❌");
+    // Har bir ID uchun alohida so'rov yuborish
+    for (const chat_id of CHAT_IDS) {
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chat_id,
+          text: text
+        })
+      });
     }
 
+    alert("Buyurtma yuborildi! ✅");
+    cart = [];
+    renderCart();
+
   } catch (err) {
-    alert("Internet xatosi ❌");
+    alert("Internet xatosi yoki serverda muammo yuz berdi ❌");
     console.log(err);
   }
 }
